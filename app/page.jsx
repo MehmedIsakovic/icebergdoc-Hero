@@ -1,6 +1,6 @@
 "use client";
 
-import { TextAnimation } from "@/components/text-animation";
+import { CasinoText } from "@/components/text-animation";
 import { cn } from "@/lib/utils";
 import { useScroll, motion, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -30,8 +30,8 @@ function Hero() {
         </video>
       </div>
 
-      <div className="absolute md:fixed inset-0 grid p-0 m-0 text-center place-items-center z-0 ">
-        <TextAnimation>Iceberg</TextAnimation>
+      <div className="absolute md:fixed inset-0 grid place-items-center">
+        <CasinoText>Iceberg</CasinoText>
       </div>
 
       <div className="grid grid-cols-6 fixed inset-0 z-20 pointer-events-none invisible md:visible">

@@ -1,14 +1,13 @@
-import React from "react";
 import { motion } from "framer-motion";
 
-const duration = 2.5; //default 2.5
+const duration = 2; //default 2
 const tightness = 25; //default 25
 const letterStagger = 0.1; //default 0.1
 const heightDiff = 0.8; //default 0.8
 
-function StaggeredTextAnimation({ char, baseDelay = 0 }) {
+function StaggeredCharAnimation({ char, baseDelay = 0, place }) {
   return (
-    <div className="relative overflow-hidden w-min h-fit leading-none flex justify-center items-center -my-8">
+    <div className="relative w-fit h-fit leading-none flex justify-center items-center p-1">
       {/* invisible placeholder to reserve space */}
       <div className="opacity-0 font-bold bg-red-200 -mt-4 lg:-mt-12 text-[5rem] lg:text-[22rem] tracking-tighter uppercase z-30">
         {char === " " ? "\u00A0" : char}
@@ -33,13 +32,14 @@ function StaggeredTextAnimation({ char, baseDelay = 0 }) {
   );
 }
 
-export function TextAnimation({ children }) {
+export function CasinoText({ children }) {
   return (
-    <div className="flex space-x-[0.1rem]">
+    <div className="flex overflow-hidden">
       {children?.split("").map((char, i) => (
-        <StaggeredTextAnimation
+        <StaggeredCharAnimation
           key={i}
           char={char}
+          place={i}
           baseDelay={i * letterStagger}
         />
       ))}
